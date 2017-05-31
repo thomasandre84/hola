@@ -57,11 +57,11 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<openfeign.version>9.4.0</openfeign.version>
-		<openfeign.opentracing.version>0.0.2</openfeign.opentracing.version>
-		<opentracing.version>0.21.0</opentracing.version>
-		<opentracing.web.servlet.filter.version>0.0.6</opentracing.web.servlet.filter.version>
+		<openfeign.opentracing.version>0.0.3</openfeign.opentracing.version>
+		<opentracing.version>0.22.0</opentracing.version>
+		<opentracing.web.servlet.filter.version>0.0.8</opentracing.web.servlet.filter.version>
 		<hystrix.version>1.5.1</hystrix.version>
-		<jaeger.version>0.18.0</jaeger.version>
+		<jaeger.version>0.19.0</jaeger.version>
 		<swagger.version>1.5.8</swagger.version>
 	</properties>
 
