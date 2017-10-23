@@ -6,5 +6,4 @@ ENV JAVA_OPTIONS -Xmx512m
 
 EXPOSE 8080
 
-ADD keycloak.json /deployments/
 ADD target/hola-swarm.jar /deployments/
