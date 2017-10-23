@@ -4,8 +4,6 @@ ENV JAVA_APP_JAR hola-swarm.jar
 ENV AB_ENABLED off
 ENV JAVA_OPTIONS -Xmx512m
 
-ENV KEYCLOAK_FILE /deployments/keycloak.json
-
 EXPOSE 8080
 
 ADD keycloak.json /deployments/
