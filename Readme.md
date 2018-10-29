@@ -1,5 +1,5 @@
 # hola
-hola microservice using Java EE (JAX-RS) on WildFly Swarm
+hola microservice using Java EE (JAX-RS) on Microprofile/Thorntail
 
 The detailed instructions to run *Red Hat Helloworld MSA* demo, can be found at the following repository: <https://github.com/redhat-helloworld-msa/helloworld-msa>
 
