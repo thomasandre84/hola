@@ -16,13 +16,23 @@
  */
 package com.redhat.developers.msa.hola;
 
-import feign.RequestLine;
+import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
+import org.jboss.resteasy.annotations.jaxrs.PathParam;
+import javax.inject.Singleton;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 
 import java.util.List;
 
+@Singleton
+@Path("/api")
+@RegisterRestClient(configKey="aloha-api")
 public interface AlohaService {
 
-	@RequestLine("GET /api/aloha-chaining")
+	@GET
+    @Path("/aloha-chaining")
 	public List<String> aloha();
 
 }

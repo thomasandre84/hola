@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -29,16 +30,16 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
 
-import org.apache.deltaspike.core.api.config.ConfigResolver;
 import org.keycloak.KeycloakPrincipal;
 import org.keycloak.KeycloakSecurityContext;
 
-import io.swagger.annotations.ApiOperation;
+//import io.swagger.annotations.ApiOperation;
 
 @Path("/")
 public class HolaResource {
 
     @Inject
+    @RestClient
     private AlohaService alohaService;
 
     @Context
@@ -50,16 +51,17 @@ public class HolaResource {
     @GET
     @Path("/hola")
     @Produces("text/plain")
-    @ApiOperation("Returns the greeting in Spanish")
+    //@ApiOperation("Returns the greeting in Spanish")
     public String hola() {
         String hostname = System.getenv().getOrDefault("HOSTNAME", "unknown");
-        String translation = ConfigResolver
+        /*String translation = ConfigResolver
             .resolve("hello")
             .withDefault("Hola de %s")
             .logChanges(true)
             // 5 Seconds cache only for demo purpose
             .cacheFor(TimeUnit.SECONDS, 5)
-            .getValue();
+            .getValue();*/
+        String translation = "Hola de %s";
         return String.format(translation, hostname);
 
     }
@@ -67,7 +69,7 @@ public class HolaResource {
     @GET
     @Path("/hola-chaining")
     @Produces("application/json")
-    @ApiOperation("Returns the greeting plus the next service in the chain")
+    //@ApiOperation("Returns the greeting plus the next service in the chain")
     public List<String> holaChaining() {
         List<String> greetings = new ArrayList<>();
         greetings.add(hola());
@@ -78,7 +80,7 @@ public class HolaResource {
     @GET
     @Path("/hola-secured")
     @Produces("text/plain")
-    @ApiOperation("Returns a message that is only available for authenticated users")
+    //@ApiOperation("Returns a message that is only available for authenticated users")
     public String holaSecured() {
         // this will set the user id as userName
         String userName = securityContext.getUserPrincipal().getName();
@@ -97,7 +99,7 @@ public class HolaResource {
     @GET
     @Path("/logout")
     @Produces("text/plain")
-    @ApiOperation("Logout")
+    //@ApiOperation("Logout")
     public String logout() throws ServletException {
         servletRequest.logout();
         return "Logged out";
@@ -106,7 +108,7 @@ public class HolaResource {
     @GET
     @Path("/health")
     @Produces("text/plain")
-    @ApiOperation("Used to verify the health of the service")
+    //@ApiOperation("Used to verify the health of the service")
     public String health() {
         return "I'm ok";
     }

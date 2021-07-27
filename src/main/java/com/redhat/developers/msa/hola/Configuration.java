@@ -1,4 +1,4 @@
-package com.redhat.developers.msa.hola;
+/*package com.redhat.developers.msa.hola;
 
 import java.io.FileReader;
 import java.util.HashMap;
@@ -47,3 +47,4 @@ public class Configuration implements ConfigSource {
         return "ConfigFile";
     }
 }
+*/
